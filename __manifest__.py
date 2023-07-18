@@ -1,23 +1,15 @@
 {
-    'name':"K'awiil Motors Motorcycle Registration",
-    'version':'0.1',
-    'summary':"Motorcycle registration for K'awiil Motors",
-    'description':'App for Motorcycle registration.',
-    'author':'Odoo',
-    'website':'odoo.com',
-    'category':'tools',
-    'license':'OPL-1',
+    'name':'Motorcycle Registry',
+    'summary':"Manage Registration of Motorcycles",
+    'description':"""Motorcycle Registry
+        ====================
+        This Module is used to keep track of the Motorcycle Registration and Ownership of each motorcycled of the brand.""",
+    'author':'rsma-odoo',
+    'website':'https://github.com/rsma-odoo',
+    'category':'kawiil',
     'depends':['base'],
-    'data':[
-        'security/ir.model.access.csv',
-        'data/data.xml',
-        'views/views.xml',
-    ],
-    'demo':[
-        'data/demo.xml',
-    ],
-    'assets':[],
+    'data':[],
+    'demo':[],
     'installable':True,
-    'auto_install':False,
-    'application':True
+    'application':True,
 }
