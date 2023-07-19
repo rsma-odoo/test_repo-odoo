@@ -3,7 +3,8 @@ from odoo import models,fields
 class MotorcycleRegistry(models.Model):
     _name = 'motorcycle.registry'
     _description = 'Motorcycle Registry'
-    registry_number = fields.Char()
+    _rec_name = 'registry_number'
+    registry_number = fields.Char(string='',required=True)
     vin = fields.Char(string='', required=True)
     first_name = fields.Char(string='',required=True)
     last_name = fields.Char(string='',required=True)
