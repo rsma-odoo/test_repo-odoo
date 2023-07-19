@@ -13,6 +13,7 @@
         'security/kawiil_motors_motorcycle_registration_groups.xml',
         'security/ir.model.access.csv',
         'security/kawiil_motors_motorcycle_registration_security.xml',
+        'views/registry_menuitems.xml',
     ],
     'demo':["demo/registry_demo.xml",],
     'installable':True,
