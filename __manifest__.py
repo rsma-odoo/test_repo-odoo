@@ -9,7 +9,7 @@
     'category':'kawiil',
     'depends':['base'],
     'data':[],
-    'demo':[],
+    'demo':["demo/registry_demo.xml" ,],
     'installable':True,
     'application':True,
 }

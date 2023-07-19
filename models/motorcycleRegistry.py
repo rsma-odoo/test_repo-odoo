@@ -25,3 +25,5 @@ license_plate - char
 certificate_title - binary
 register_date - date
 """
+
+#env['motorcycle.registry'].search_read([])
