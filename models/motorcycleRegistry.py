@@ -5,17 +5,39 @@ class MotorcycleRegistry(models.Model):
     _name = 'motorcycle.registry'
     _description = 'Motorcycle Registry'
     _rec_name = 'registry_number'
+    partner = fields.Many2one(
+        comodel_name="res.partner",
+        ondelete='cascade',
+        required=True,
+        string='Partner Name'
+    )
     registry_number = fields.Char(
-            string='Registry Number',
-            required=True,
-            default='MRN0000',
-            copy=False,
-            readonly=True)
+        string='Registry Number',
+        required=True,
+        default='MRN0000',
+        copy=False,
+        readonly=True
+    )
+    email = fields.Char(
+        string="email",
+        related='partner.email'
+    )
+    phone = fields.Char(
+        string="phone",
+        related='partner.phone'
+    )
+    picture = fields.Image(
+        string='Profile Pic',
+        related='partner.image_1920'
+    )
+
+    make = fields.Char(string='Make',required=True)
+    model = fields.Char(string='Model',required=True)
+    year = fields.Char(string='Year',required=True)
+    battery_cap = fields.Char(string='Battery Capacity',required=True)
+    serial_no = fields.Char(string='Serial Number',required=True)
     
-    vin = fields.Char(string='', required=True)
-    first_name = fields.Char(string='First Name',required=True)
-    last_name = fields.Char(string='Last Name',required=True)
-    picture = fields.Image(string='Profile Pic')
+    vin = fields.Char(string='VIN', compute='_compute_vin' ,required=True)
     current_mileage = fields.Float(string='Mileage')
     license_plate = fields.Char(string='License Plate',copy=False,)
     certificate_title = fields.Binary(string='Certificate Title')
@@ -41,8 +63,8 @@ class MotorcycleRegistry(models.Model):
     
         error = ''
         error += ('\nVIN must be 14 characters long.','')[len(self.vin) == 14]
-        error += ('\nFirst two characters must be capital letters.','')[self.vin[0:2].isalpha() and self.vin[0:2].isupper()]
-        error += ('\nCharacters 3 and 4 must be capital letters.','')[self.vin[2:4].isalpha() and self.vin[2:4].isupper()]
+        error += ('\nFirst two characters must be capital letters.','')[self.vin[0:2].isupper()]
+        error += ('\nCharacters 3 and 4 must be capital letters.','')[self.vin[2:4].isupper()]
         error += ('\nCharacters 5 and 6 must be numeric.','')[self.vin[4:6].isnumeric()]
         error += ('\nCharacters 7 and 8 must be capital letters or numbers.','')[all([(ch.isnumeric() or ch.isupper()) for ch in self.vin[6:8]])]
         error += ('\nLast 6 characters must be numeric.','')[self.vin[8:14].isnumeric()]
@@ -80,6 +102,14 @@ The License Plate should follow the following Pattern:
 
         1 - 4 Capital Letters
         1 - 3 Digits""")
+        return
+    
+    @api.depends('make','model','year','battery_cap','serial_no')
+    def _compute_vin(self):
+        if(all([self.make,self.model,self.year,self.battery_cap,self.serial_no])):
+            self.vin = f'{self.make[:2]}{self.model[:2]}{self.year[-2:]}{self.battery_cap[:2]}{self.serial_no[:6]}'
+        else:
+            self.vin=''
         return
 
 """registry_number - char, required, this field should be the name of the record.

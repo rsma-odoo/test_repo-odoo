@@ -8,7 +8,7 @@
     'author':'rsma-odoo',
     'website':'https://github.com/rsma-odoo',
     'category':'kawiil',
-    'depends':['base'],
+    'depends':['base','contacts',],
     'data':[
         'security/kawiil_motors_motorcycle_registration_groups.xml',
         'security/ir.model.access.csv',
@@ -17,7 +17,7 @@
         'views/registry_menuitems.xml',
         'views/motorcycleRegistry_views.xml',
     ],
-    'demo':["demo/registry_demo.xml",],
+    'demo':[],#"demo/registry_demo.xml",],
     'installable':True,
     'application':True,
 }

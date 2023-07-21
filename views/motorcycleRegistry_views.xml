@@ -7,30 +7,47 @@
             <form string="Registries view">
                 <header>
                     <h1>
-                        <field name="first_name"/>
+                        <field name="partner"/>
                     </h1>
                 </header>
                 <sheet>
                     <group>
                         <group>
                             <separator string="Owner data"/>
-                                <field name="picture"/>
-                                <field name="first_name"/>
-                                <field name="last_name"/>
+                                <field name="picture" widget="image" class="oe_avatar"/>
+                                <field name="partner"/>
+                                <field name="phone"/>
+                                <field name="email"/>
                                 <field name="registry_number"/>
                         </group>
                         <group>
-                            <separator string="Motorcycle data"/>
+                            <separator string="VIN Components"/>
+                            <group>
+                                <field name="make"/>
+                                <field name="model"/>
+                            </group>
+                            <group>
+                                <field name="year"/>
+                                <field name="battery_cap"/>
+                            </group>
+                            <group>
+                                <field name="serial_no"/>
+                            </group>
+                            <group>
+                                <separator string="Motorcycle data"/>
                                 <field name="vin"/>
                                 <field name="current_mileage"/>
                                 <field name="license_plate"/>
                                 <field name="register_date"/>
+                            </group>
                         </group>
                     </group>
                 </sheet>
                 <notebook>
                     <page string="Documents">
-                        <field name="certificate_title"/>
+                        <group>
+                            <field name="certificate_title"/>
+                        </group>
                     </page>
                 </notebook>
             </form>
@@ -45,8 +62,7 @@
                 <field name="registry_number"/>
                 <field name="vin"/>
                 <field name="license_plate"/>
-                <field name="first_name"/>
-                <field name="last_name"/>
+                <field name="partner"/>
             </tree>
         </field>
     </record>
@@ -58,8 +74,8 @@
             <search>
                 <field name="registry_number"/>
                 <field name="vin"/>
-                <field name="last_name"/>
                 <field name="license_plate"/>
+                <field name="partner"/>
             </search>
         </field>
     </record>
