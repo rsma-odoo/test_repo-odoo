@@ -2,28 +2,28 @@
 <odoo>
     <data>
         <record id="reg_01" model="motorcycle.registry">
-            <field name="registry_number">001</field>
-            <field name="vin">vin diesel</field>
-            <field name="first_name">jose</field>
-            <field name="last_name">martinez</field>
+            <field name="registry_number">MRN0001</field>
+            <field name="vin">MKII19M1012345</field>
+            <field name="first_name">Jose</field>
+            <field name="last_name">Martinez</field>
             <field name="current_mileage">5000.0</field>
-            <field name="license_plate">var123</field>
+            <field name="license_plate">VAR123</field>
         </record>
         <record id="reg_02" model="motorcycle.registry">
-            <field name="registry_number">002</field>
-            <field name="vin">vingo</field>
-            <field name="first_name">juan</field>
-            <field name="last_name">rodriguez</field>
+            <field name="registry_number">MRN0002</field>
+            <field name="vin">MKIV21M2123456</field>
+            <field name="first_name">Juan</field>
+            <field name="last_name">Rodriguez</field>
             <field name="current_mileage">10000.5</field>
-            <field name="license_plate">pop345</field>
+            <field name="license_plate">POP345</field>
         </record>
         <record id="reg_03" model="motorcycle.registry">
-            <field name="registry_number">003</field>
-            <field name="vin">vinvin</field>
-            <field name="first_name">francisco</field>
-            <field name="last_name">castorena</field>
+            <field name="registry_number">MRN0003</field>
+            <field name="vin">MKVI23M3234567</field>
+            <field name="first_name">Francisco</field>
+            <field name="last_name">Castorena</field>
             <field name="current_mileage">800.7</field>
-            <field name="license_plate">top987</field>
+            <field name="license_plate">TOP987</field>
         </record>
     </data>
 </odoo>

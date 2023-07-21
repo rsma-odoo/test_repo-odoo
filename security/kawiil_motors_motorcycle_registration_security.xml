@@ -4,8 +4,7 @@
         <record id="only_active_modify" model="ir.rule">
             <field name="name">id will be modified later...</field>
             <field name="model_id" ref="model_motorcycle_registry"/>
-            <field name="domain_force">[('active','=',True)]</field>
-            <field name="perm_read">0</field>
+            <field name="perm_read">1</field>
             <field name="perm_write">1</field>
             <field name="perm_create">0</field>
             <field name="perm_unlink">1</field>

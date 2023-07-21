@@ -3,7 +3,7 @@ Training Exercise
 Specifications
 
 """
-from odoo import env
+from odoo.models import env
 def main():
     
     #Create one record from the Motorcycle Registry Model. This Registry should have more than 1000 miles and no license plate.
