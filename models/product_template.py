@@ -5,7 +5,7 @@ class ProductTemplate(models.Model):
     _inherit ='product.template'
 
     detailed_type = fields.Selection(selection_add=[('motorcycle', 'Motorcycle'),], ondelete={'motorcycle': 'set product'})
-    type = fields.Selection(selection_add=[('motorcycle', 'Motorcycle'),], ondelete={'motorcycle': 'set product'})
+    type = fields.Selection(selection_add=[('motorcycle', 'Motorcycle'),], ondelete={'motorcycle': 'set product'},compute='_check_detailed_type')#fields.Selection(selection_add=[('motorcycle', 'Motorcycle'),], ondelete={'motorcycle': 'set product'})
 
     horsepower = fields.Char(string='Horse Power')
     top_speed = fields.Char(string='Top Speed')
@@ -17,4 +17,6 @@ class ProductTemplate(models.Model):
     make = fields.Char(string='Make')
     model = fields.Char(string='Model')
 
-  
+    @api.depends('detailed_type')
+    def _check_detailed_type(self):
+        self.type = (self.detailed_type,'product')[self.detailed_type == 'motorcycle']
